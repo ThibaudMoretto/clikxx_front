@@ -1,0 +1,27 @@
+{
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "endOfLine": "auto",
+  "importOrder": [
+    "react",
+    "<THIRD_PARTY_MODULES>",
+    "^constants/(.*)$",
+    "^assets/(.*)$",
+    "api",
+    "^(.*)type(/.*)?$",
+    "actionTypes",
+    "actions",
+    "reducers",
+    "selectors$",
+    "utils",
+    "^(.*)hooks/(.*)$",
+    "^components.*(?<!scss)$",
+    "^..?\\/((?!use).)*(?<!scss)$",
+    "^..?.*/use[A-Z].*(?<!scss)$",
+    ".scss$",
+    "^\\.$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
