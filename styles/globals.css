@@ -14,11 +14,6 @@ a {
   text-decoration: none;
 }
 
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 * {
   box-sizing: border-box;
   color: #ffffff;

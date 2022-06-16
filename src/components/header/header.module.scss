@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .x {
+      color: #f499c1;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .logo {
+      flex-direction: column-reverse;
+      gap: 10px;
+    }
+  }
+}

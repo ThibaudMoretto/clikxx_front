@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { Footer } from '../footer';
-import { Navbar } from '../navbar';
+import { Header } from '../header';
+
+import styles from './layout.module.scss';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -8,16 +10,16 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="content">
+    <div className={styles.layout}>
       <Head>
         <title>Pinkx</title>
         <meta name="description" content="Pinkx is a porn oriented website" />
         <link rel="icon" href="/favicon-16x16.png" />
       </Head>
 
-      <Navbar />
+      <Header />
 
-      {children}
+      <main className={styles.main}>{children}</main>
 
       <Footer />
     </div>

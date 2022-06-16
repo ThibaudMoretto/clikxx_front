@@ -12,7 +12,7 @@ export const Footer = () => {
       >
         Powered by Pinkx{' '}
         <span className={styles.logo}>
-          <Image src="/logo.svg" alt="Vercel Logo" width={20} height={10} />
+          <Image src="/logo.svg" alt="Pinkx Logo" width={20} height={10} />
         </span>
       </a>
     </footer>
