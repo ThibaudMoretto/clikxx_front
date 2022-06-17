@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 import styles from './navbar.module.scss';
 
@@ -13,10 +12,10 @@ export const Navbar = () => {
         <a>Random</a>
       </Link>
       <Link href="/streams">
-        <a>Channels 24/7</a>
+        <a>Pinkx TV</a>
       </Link>
-      <Link href="/about">
-        <a>About</a>
+      <Link href="/favorites">
+        <a>Favorites</a>
       </Link>
     </nav>
   );

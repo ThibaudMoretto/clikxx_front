@@ -1,13 +1,26 @@
 import type { NextPage } from 'next';
 
-import styles from '../styles/Home.module.scss';
+import { VideoList } from 'src/components/videoList';
 
-const Home: NextPage = () => {
+import styles from 'styles/Home.module.scss';
+
+export const getStaticProps = async () => {
+  const response = await fetch(
+    'https://www.eporner.com/api/v2/video/search/?query=teen&thumbsize=big&order=most-popular&lq=0'
+  );
+  const videos = await response.json();
+
+  return {
+    props: {
+      videos,
+    },
+  };
+};
+
+const Home: NextPage = ({ videos }: any) => {
   return (
     <div className={styles.home}>
-      <h1 className={styles.title}>
-        Welcome to Pink<span>x</span>
-      </h1>
+      <VideoList videos={videos} />
     </div>
   );
 };

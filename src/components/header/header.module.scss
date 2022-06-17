@@ -8,6 +8,7 @@
   .logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
     span {
       font-size: 2.5rem;
@@ -29,8 +30,9 @@
     gap: 10px;
 
     .logo {
-      flex-direction: column-reverse;
-      gap: 10px;
+      .logoImage {
+        display: none;
+      }
     }
   }
 }

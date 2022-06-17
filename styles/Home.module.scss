@@ -5,15 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
-  .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-    text-align: center;
+@media screen and (max-width: 768px) {
+  .home {
+    padding: 1rem 0;
 
-    > span {
-      color: #f499c1;
+    .title {
+      display: none;
     }
   }
 }

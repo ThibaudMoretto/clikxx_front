@@ -14,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Head>
         <title>Pinkx</title>
         <meta name="description" content="Pinkx is a porn oriented website" />
-        <link rel="icon" href="/favicon-16x16.png" />
+        <link rel="favicon" href="/favicon.ico" />
       </Head>
 
       <Header />
