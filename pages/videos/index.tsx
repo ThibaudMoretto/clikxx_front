@@ -25,8 +25,6 @@ function Videos() {
       });
   }, []);
 
-  console.log(data);
-
   return (
     <div className={styles.videos}>
       {isLoading || !data ? (

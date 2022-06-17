@@ -17,6 +17,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <link rel="favicon" href="/favicon.ico" />
       </Head>
 
+      <div className={styles.header}></div>
       <Header />
 
       <main className={styles.main}>{children}</main>
