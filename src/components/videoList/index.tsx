@@ -1,4 +1,4 @@
-import { VideoCard } from './videoCard';
+import { VideoCard } from '../shared/videoCard';
 
 import styles from './videoList.module.scss';
 

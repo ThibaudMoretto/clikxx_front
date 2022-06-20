@@ -6,7 +6,7 @@ import styles from 'styles/Home.module.scss';
 
 export const getStaticProps = async () => {
   const response = await fetch(
-    'https://www.eporner.com/api/v2/video/search/?query=teen&thumbsize=big&order=most-popular&lq=0'
+    'https://www.eporner.com/api/v2/video/search/?query=teen&thumbsize=big&order=latest&lq=0'
   );
   const videos = await response.json();
 

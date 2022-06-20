@@ -5,8 +5,6 @@ import Image from 'next/image';
 
 import { getFavorites } from 'src/utils/favorites';
 
-import { Video } from 'types/video';
-
 import styles from './videoCard.module.scss';
 
 export const VideoCard = ({ video }: any) => {
@@ -24,7 +22,9 @@ export const VideoCard = ({ video }: any) => {
   const removeFavorite = () => {
     const favorites = getFavorites();
     if (favorites.includes(video.id) && typeof window !== 'undefined') {
-      const favoritesArray = favorites.filter((fav: Video) => fav !== video.id);
+      const favoritesArray = favorites.filter(
+        (fav: string) => fav !== video.id
+      );
       localStorage.setItem('favorites', JSON.stringify(favoritesArray));
     }
     setIsFavorite(false);
@@ -38,19 +38,22 @@ export const VideoCard = ({ video }: any) => {
   }, []);
 
   return (
-    <div className={styles.video}>
+    <div className={styles.videoCard}>
       <div className={styles.source}>Eporner</div>
-      <Link
-        href={{ pathname: `/videos`, query: { id: video.id } }}
-        key={video.id}
-      >
-        <Image
-          src={video.default_thumb.src}
-          alt={video.title}
-          width={200}
-          height={150}
-        />
-      </Link>
+      <div className={styles.thumb}>
+        <Link
+          href={{ pathname: `/videos`, query: { id: video.id } }}
+          key={video.id}
+        >
+          <Image
+            src={video.default_thumb.src}
+            alt={video.title}
+            layout="fill"
+            objectFit="cover"
+          />
+        </Link>
+      </div>
+
       <div className={styles.details}>
         <Link
           href={{ pathname: `/videos`, query: { id: video.id } }}

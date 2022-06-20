@@ -4,10 +4,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 80px;
 
   > a {
+    width: 25%;
     font-size: 1.1em;
+    border-left: #f499c1 solid 1px;
+    text-align: center;
+    padding: 10px;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
   background-color: #2f2f2f;
@@ -16,14 +27,13 @@
 
 @media screen and (max-width: 780px) {
   .navbar {
-    margin-top: 10px;
     justify-content: space-around;
     background-color: #2f2f2f;
-    padding: 10px 0;
 
     > a {
       width: 25%;
       text-align: center;
+      border: none;
     }
   }
 }
