@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['static-ca-cdn.eporner.com'],
+    domains: [
+      'static-ca-cdn.eporner.com',
+      'ei-ph.rdtcdn.com',
+      'di-ph.rdtcdn.com',
+    ],
   },
 };
 

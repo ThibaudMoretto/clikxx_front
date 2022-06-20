@@ -1,0 +1,18 @@
+.favoriteButton {
+  input {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    font-size: 1.4em;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+
+    &.isFavorite {
+      color: #f499c1;
+      background-color: #6a6a6a;
+    }
+  }
+}

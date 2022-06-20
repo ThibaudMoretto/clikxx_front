@@ -3,7 +3,7 @@ import { VideoCard } from '../shared/videoCard';
 import styles from './videoList.module.scss';
 
 export const VideoList = ({ videos }: any) => {
-  const { videos: videosList } = videos;
+  const videosList = videos;
 
   return (
     <div className={styles.videoList}>

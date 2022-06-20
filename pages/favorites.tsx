@@ -2,25 +2,27 @@ import { useEffect, useState } from 'react';
 
 import { VideoCard } from 'src/components/shared/videoCard';
 
-import { Video } from 'types/video';
+import { VideoDefinition } from 'types/video';
 
 import { getFavorites } from 'src/utils/favorites';
 
 import styles from 'styles/Favorites.module.scss';
 
 function Favorites() {
-  const [data, setData] = useState<Array<Video>>();
+  const [data, setData] = useState<Array<VideoDefinition>>();
 
   useEffect(() => {
     const favorites = getFavorites();
 
-    const favoriteVideos: Array<Video> = [];
+    const favoriteVideos: Array<VideoDefinition> = [];
 
     (async () => {
-      for (const id of favorites) {
-        await fetch(`https://www.eporner.com/api/v2/video/id/?id=${id}`)
+      for (const favorite of favorites) {
+        const { videoId } = favorite;
+
+        await fetch(`https://www.eporner.com/api/v2/video/id/?id=${videoId}`)
           .then((res) => res.json())
-          .then((fetchedData: Video) => {
+          .then((fetchedData: VideoDefinition) => {
             favoriteVideos.push(fetchedData);
           });
       }
@@ -32,11 +34,11 @@ function Favorites() {
     <div className={styles.favorites}>
       <h1>Your &#10084; videos</h1>
       <div className={styles.videos}>
-        {!data ? (
+        {data === [] ? (
           <div>Loading...</div>
         ) : (
           <>
-            {data.map((video: Video) => (
+            {data?.map((video: VideoDefinition) => (
               <VideoCard key={video.id} video={video} />
             ))}
           </>

@@ -2,7 +2,7 @@
   position: relative;
   min-width: 280px;
   width: 25%;
-  min-height: 250px;
+  min-height: 215px;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -24,6 +24,7 @@
 
     .title {
       width: fit-content;
+      height: 36px;
       font-weight: 500;
       font-size: 1.1rem;
       white-space: wrap;
@@ -35,20 +36,13 @@
       }
     }
 
-    input {
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      position: absolute;
-      top: calc(50% - 8px);
-      right: 10px;
-      border-radius: 50%;
-      font-size: 1.4em;
-      background-color: rgba($color: #ffffff, $alpha: 0.5);
+    .content {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
 
-      &.isFavorite {
-        color: #f499c1;
-        background-color: #2a2a2a;
+      > span {
+        white-space: nowrap;
       }
     }
   }
@@ -56,12 +50,13 @@
   .source {
     z-index: 1;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
     padding: 5px;
     border-radius: 5px;
     background-color: #f499c1;
     font-size: 12px;
+    text-transform: capitalize;
   }
 
   .thumb {
@@ -79,6 +74,10 @@
 
     .details {
       border: none;
+
+      .title {
+        height: auto;
+      }
     }
   }
 }
