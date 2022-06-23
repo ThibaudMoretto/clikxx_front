@@ -8,31 +8,43 @@ import { VideoApi } from 'types/video';
 import styles from './videoCard.module.scss';
 
 export const VideoCard = ({ video }: VideoApi) => {
+  const handleSelectVideo = () => {
+    localStorage.setItem('video', JSON.stringify(video));
+  };
+
   return (
     <div className={styles.videoCard}>
       <>
-        <div className={styles.source}>{video.source}</div>
+        <div className={`${styles.source} ${styles[video.source]}`}>
+          {video.source}
+        </div>
         <div className={styles.thumb}>
           <Link
-            href={{ pathname: `/video`, query: { id: video.id } }}
-            key={video.id}
+            href={{
+              pathname: `/video`,
+            }}
           >
-            <Image
-              src={video.default_thumb}
-              alt={video.title}
-              layout="fill"
-              objectFit="cover"
-            />
+            <a onClick={handleSelectVideo}>
+              <Image
+                src={video.default_thumb}
+                alt={video.title}
+                layout="fill"
+                objectFit="cover"
+              />
+            </a>
           </Link>
           <FavoriteButton videoId={video.id} source={video.source} />
         </div>
 
         <div className={styles.details}>
           <Link
-            href={{ pathname: `/video`, query: { id: video.id } }}
-            key={video.id}
+            href={{
+              pathname: `/video`,
+            }}
           >
-            <a className={styles.title}>{video.title}</a>
+            <a className={styles.title} onClick={handleSelectVideo}>
+              {video.title}
+            </a>
           </Link>
           <div className={styles.content}>
             <span>{`Length: ${video.duration}`}</span>

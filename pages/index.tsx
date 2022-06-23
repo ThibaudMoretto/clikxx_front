@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
+
+import { Video } from 'types/video';
 
 import { VideoList } from 'src/components/videoList';
 
@@ -26,11 +29,26 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage = ({ epornerVideos, redtubeVideos }: any) => {
-  const videos = useVideoListSerializer({ epornerVideos, redtubeVideos });
+  const videoList: any = useVideoListSerializer({
+    epornerVideos,
+    redtubeVideos,
+  });
+
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => setVideos(videoList), []);
+
+  useEffect(() => {
+    const embedLinks = videos.map((video: Video) => ({
+      embed: video.embed,
+      title: video.title,
+    }));
+    localStorage.setItem('randomList', JSON.stringify(embedLinks));
+  }, [videos]);
 
   return (
     <div className={styles.home}>
-      <h1>Personnalise ta page daccueil</h1>
+      <h1>Have a nice time browsing Pinkx !</h1>
       <VideoList videos={videos} />
     </div>
   );

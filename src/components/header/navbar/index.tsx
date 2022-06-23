@@ -8,11 +8,9 @@ export const Navbar = () => {
       <Link href="/">
         <a>Home</a>
       </Link>
+      <a href="http://www.pornhub.com">AD LINK</a>
       <Link href="/random">
         <a>Random</a>
-      </Link>
-      <Link href="/streams">
-        <a>Pinkx TV</a>
       </Link>
       <Link href="/favorites">
         <a>Favorites</a>

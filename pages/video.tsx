@@ -7,35 +7,25 @@ import { Video } from 'types/video';
 import styles from 'styles/Videos.module.scss';
 
 function Videos() {
-  const {
-    back,
-    query: { id: videoId },
-  } = useRouter();
+  const { back } = useRouter();
 
-  const [data, setData] = useState<Video>();
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const [video, setVideo] = useState<Video>();
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`https://www.eporner.com/api/v2/video/id/?id=${videoId}`, {})
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
+    if (typeof window !== 'undefined') {
+      setVideo(JSON.parse(localStorage.getItem('video') || ''));
+    }
   }, []);
 
   return (
     <div className={styles.videos}>
-      {isLoading || !data ? (
-        <div>Loading...</div>
-      ) : (
+      <button onClick={back}> {'<'} Go back</button>
+      {video && (
         <>
-          <button onClick={back}> {'<'} Go back</button>
-          <h1>{data.title}</h1>
-          <iframe src={data.embed} allowFullScreen></iframe>
+          <h1>{video.title}</h1>
+          <iframe src={video.embed}></iframe>
           <div className="details">
-            <span>Added : {data.added}</span>
+            <span>Added : {video.added}</span>
           </div>
         </>
       )}

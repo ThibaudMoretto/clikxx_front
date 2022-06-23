@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Navbar } from './navbar';
+import { Search } from './search';
 
 import styles from './header.module.scss';
 
@@ -27,9 +28,7 @@ export const Header = () => {
             </span>
           </a>
         </Link>
-        <div className={styles.search}>
-          <Image src="/search.svg" alt="search" width={25} height={25} />
-        </div>
+        <Search />
       </div>
       <Navbar />
     </header>

@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -24,10 +25,6 @@
       .x {
         color: #f499c1;
       }
-    }
-
-    .search {
-      color: #f499c1;
     }
 
     .menu {

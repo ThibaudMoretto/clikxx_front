@@ -1,33 +1,37 @@
 .videoCard {
   position: relative;
-  min-width: 280px;
-  width: 25%;
+  // min-width: 300px;
+  width: 22%;
   min-height: 215px;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  border-radius: 5px;
-  overflow: hidden;
 
   transition: all 0.1s ease-in-out;
 
   img {
+    border-radius: 5px;
+    overflow: hidden;
     &:hover {
       cursor: pointer;
     }
   }
 
   .details {
+    width: 100%;
     padding: 10px;
     display: flex;
     flex-direction: column;
 
     .title {
-      width: fit-content;
-      height: 36px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       font-weight: 500;
       font-size: 1.1rem;
-      white-space: wrap;
       margin-bottom: 10px;
 
       &:hover {
@@ -54,9 +58,16 @@
     left: 10px;
     padding: 5px;
     border-radius: 5px;
-    background-color: #f499c1;
     font-size: 12px;
     text-transform: capitalize;
+
+    &.eporner {
+      background-color: #d8377d;
+    }
+
+    &.redtube {
+      background-color: #f41111;
+    }
   }
 
   .thumb {

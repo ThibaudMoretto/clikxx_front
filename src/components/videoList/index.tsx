@@ -3,7 +3,7 @@ import { VideoCard } from '../shared/videoCard';
 import styles from './videoList.module.scss';
 
 export const VideoList = ({ videos }: any) => {
-  const videosList = videos;
+  const videosList = videos.sort(() => Math.random() - 0.5);
 
   return (
     <div className={styles.videoList}>
