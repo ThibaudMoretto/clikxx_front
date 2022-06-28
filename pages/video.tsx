@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
+import { FavoriteButton } from 'src/components/shared/favoriteButton';
+
 import { Video } from 'types/video';
 
 import styles from 'styles/Videos.module.scss';
@@ -27,6 +29,7 @@ function Videos() {
           <div className="details">
             <span>Added : {video.added}</span>
           </div>
+          <FavoriteButton source={video.source} videoId={video.id} />
         </>
       )}
     </div>

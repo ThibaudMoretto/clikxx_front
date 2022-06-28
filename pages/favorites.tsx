@@ -2,29 +2,42 @@ import { useEffect, useState } from 'react';
 
 import { VideoCard } from 'src/components/shared/videoCard';
 
-import { VideoDefinition } from 'types/video';
+import { SOURCES } from 'src/constants/sources';
+
+import { Video } from 'types/video';
 
 import { getFavorites } from 'src/utils/favorites';
 
 import styles from 'styles/Favorites.module.scss';
 
 function Favorites() {
-  const [data, setData] = useState<Array<VideoDefinition>>();
+  const [data, setData] = useState<Array<Video>>();
 
   useEffect(() => {
     const favorites = getFavorites();
 
-    const favoriteVideos: Array<VideoDefinition> = [];
+    const favoriteVideos: Array<Video> = [];
 
     (async () => {
       for (const favorite of favorites) {
-        const { videoId } = favorite;
+        const { source, videoId } = favorite;
 
-        await fetch(`https://www.eporner.com/api/v2/video/id/?id=${videoId}`)
-          .then((res) => res.json())
-          .then((fetchedData: VideoDefinition) => {
-            favoriteVideos.push(fetchedData);
-          });
+        if (source === SOURCES.eporner) {
+          await fetch(`https://www.eporner.com/api/v2/video/id/?id=${videoId}`)
+            .then((res) => res.json())
+            .then((fetchedData: Video) => {
+              favoriteVideos.push(fetchedData);
+            });
+        }
+        if (source === SOURCES.redtube) {
+          await fetch(
+            `https://api.redtube.com/?data=redtube.Videos.getVideoById&video_id=${videoId}`
+          )
+            .then((res) => res.json())
+            .then((fetchedData: Video) => {
+              favoriteVideos.push(fetchedData);
+            });
+        }
       }
       setData(favoriteVideos);
     })();
@@ -38,7 +51,7 @@ function Favorites() {
           <div>Loading...</div>
         ) : (
           <>
-            {data?.map((video: VideoDefinition) => (
+            {data?.map((video: Video) => (
               <VideoCard key={video.id} video={video} />
             ))}
           </>

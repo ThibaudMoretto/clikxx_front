@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   const epornerVideos = await eporner.json();
 
   const redtube = await fetch(
-    'https://api.redtube.com/?data=redtube.Videos.searchVideos&output=json&thumbsize=big&order=newest'
+    'https://api.redtube.com/?data=redtube.Videos.searchVideos&order=newest'
   );
   const redtubeVideos = await redtube.json();
 
@@ -48,7 +48,7 @@ const Home: NextPage = ({ epornerVideos, redtubeVideos }: any) => {
 
   return (
     <div className={styles.home}>
-      <h1>Have a nice time browsing Pinkx !</h1>
+      <h1>Have a nice time browsing Clikxx !</h1>
       <VideoList videos={videos} />
     </div>
   );

@@ -24,11 +24,11 @@ export const Header = () => {
               <Image src="/logo.svg" alt="Pinkx Logo" width={75} height={25} />
             </div>
             <span>
-              Pink<span className={styles.x}>x</span>
+              Clik<span className={styles.x}>xx</span>
             </span>
           </a>
         </Link>
-        <Search />
+        {process.env.NODE_ENV === 'development' && <Search />}
       </div>
       <Navbar />
     </header>

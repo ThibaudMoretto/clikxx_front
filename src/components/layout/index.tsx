@@ -12,7 +12,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.layout}>
       <Head>
-        <title>Pinkx</title>
+        <title>Clikxx</title>
         <meta name="description" content="Pinkx is a porn oriented website" />
         <link rel="favicon" href="/favicon.ico" />
       </Head>
