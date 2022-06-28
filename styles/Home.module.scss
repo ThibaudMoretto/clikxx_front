@@ -5,14 +5,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  > iframe {
+    border: none;
+    margin-top: 10px;
+    width: 350px;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .home {
     padding: 1rem 0;
-
-    .title {
-      display: none;
-    }
   }
 }
