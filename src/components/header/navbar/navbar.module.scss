@@ -1,5 +1,6 @@
 .navbar {
   position: relative;
+  height: auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,10 +10,12 @@
 
   > a {
     width: 25%;
+    height: 100%;
     font-size: 1.1em;
+    padding: 10px;
     border-left: #f499c1 solid 1px;
     text-align: center;
-    padding: 10px;
+    text-transform: uppercase;
 
     transition: all 0.1s ease-in-out;
 
@@ -38,11 +41,18 @@
   .navbar {
     justify-content: space-around;
     background-color: #2f2f2f;
+    border-radius: 0;
 
     > a {
       width: 25%;
       text-align: center;
       border: none;
+      font-size: 1em;
+      padding: 7px;
+
+      &:first-child {
+        display: none;
+      }
     }
   }
 }

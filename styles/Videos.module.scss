@@ -1,38 +1,68 @@
 .videos {
-  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+  align-items: stretch;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: auto;
 
-  iframe {
-    border: none;
-    width: 800px;
-    height: 500px;
+  .content {
+    position: relative;
+
+    iframe {
+      border: none;
+      width: 800px;
+      height: 500px;
+    }
   }
 
-  button {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .adsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    iframe {
+      height: 250px;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   .videos {
     position: static;
-    iframe {
-      width: 100vw;
-      height: fit-content;
-      border: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .content {
+      h1 {
+        text-align: center;
+        padding: 15px;
+      }
+
+      iframe {
+        width: 100vw;
+        height: fit-content;
+        border: none;
+      }
+
+      button {
+        top: 25px;
+        left: 15px;
+      }
     }
 
-    button {
-      top: 25px;
-      left: 15px;
+    .adsSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      iframe {
+        height: 250px;
+
+        &:not(:first-of-type) {
+          display: none;
+        }
+      }
     }
   }
 }

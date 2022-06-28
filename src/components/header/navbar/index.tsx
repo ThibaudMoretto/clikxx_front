@@ -8,10 +8,12 @@ export const Navbar = () => {
       <Link href="/">
         <a>Home</a>
       </Link>
-      <a href="http://www.pornhub.com">AD LINK</a>
       <Link href="/random">
         <a>Random</a>
       </Link>
+      <a href="https://t.mbdating.link/225144/3788/0?bo=3471,3472,3473,3474,3475&po=6456">
+        &#128007;
+      </a>
       <Link href="/favorites">
         <a>Favorites</a>
       </Link>

@@ -10,14 +10,16 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logoSection}>
-        <div className={styles.menu}>
-          <Image
-            src="/burgerMenu.png"
-            alt="burger menu"
-            width={35}
-            height={35}
-          />
-        </div>
+        {process.env.NODE_env === 'development' && (
+          <div className={styles.menu}>
+            <Image
+              src="/burgerMenu.png"
+              alt="burger menu"
+              width={35}
+              height={35}
+            />
+          </div>
+        )}
         <Link href={'/'}>
           <a className={styles.logo}>
             <div className={styles.logoImage}>

@@ -10,7 +10,7 @@ export interface Video {
   duration: string;
   embed: string;
   id: string;
-  keywords: string;
+  keywords: Array<string>;
   rate: string;
   source: SOURCES;
   thumbs: Array<VideoThumb>;
@@ -31,7 +31,7 @@ export interface EpornerVideo extends Video {
   default_thumb: VideoThumb;
   embed: string;
   id: string;
-  keywords: string;
+  keywords: Array<string>;
   length_min: string;
   length_sec: number;
   rate: string;

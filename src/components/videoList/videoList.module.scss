@@ -7,10 +7,23 @@
   overflow: auto;
   column-gap: 15px;
   row-gap: 15px;
+
+  iframe {
+    width: 22%;
+    height: 205px;
+    border-radius: 5px;
+  }
 }
 
 @media screen and (max-width: 780px) {
   .videoList {
     gap: 10px;
+    align-items: center;
+
+    iframe {
+      width: auto;
+      min-height: 205px;
+      margin: 15px 0;
+    }
   }
 }
