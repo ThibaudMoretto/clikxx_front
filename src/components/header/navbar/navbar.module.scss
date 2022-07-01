@@ -13,7 +13,7 @@
     height: 100%;
     font-size: 1.1em;
     padding: 10px;
-    border-left: #f499c1 solid 1px;
+    border-left: var(--pink) solid 1px;
     text-align: center;
     text-transform: uppercase;
 
@@ -28,19 +28,20 @@
     }
 
     &:hover {
-      background-color: #222222;
+      background-color: var(--dark-pink);
       transition: all 0.1s ease-in-out;
+      color: var(--dark-grey);
     }
   }
 
-  background-color: #2f2f2f;
+  background-color: var(--grey);
   background-size: 100vw;
 }
 
 @media screen and (max-width: 780px) {
   .navbar {
     justify-content: space-around;
-    background-color: #2f2f2f;
+    background-color: var(--grey);
     border-radius: 0;
 
     > a {

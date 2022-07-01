@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 
-import { getRandomVideo } from 'src/utils/videos';
+import { SearchPanel } from './searchPanel';
 
 import { useHandleClickOutsidePanel } from './useHandleClickOutsidePanel';
 
@@ -14,10 +14,6 @@ export const Search = () => {
   const panelRef = useRef(null);
   useHandleClickOutsidePanel(panelRef, setSearchPanelIsOpen);
 
-  const trendySearches = ['Katsuni', 'Anal', 'Outside', 'Double'];
-
-  const categories = ['Teen', 'Asian', 'Amateur', 'Lesbian'];
-
   const handleSearchChange = ({
     target: { value },
   }: {
@@ -26,13 +22,13 @@ export const Search = () => {
     setSearchValue(value);
   };
 
-  const randomVideo = getRandomVideo();
-
   const handleSearchSubmit = (e: any) => {
     if (e.key === 'Enter') {
       console.log(e.target.value);
     }
   };
+
+  console.log(panelRef);
 
   return (
     <div
@@ -49,30 +45,10 @@ export const Search = () => {
       />
       <Image src="/search.svg" alt="search" width={25} height={25} />
       {searchPanelIsOpen && (
-        <div className={styles.searchPanel}>
-          {trendySearches.length > 0 && (
-            <div className={styles.trendySearches}>
-              <h2>Trendy searches</h2>
-              <ul>
-                {trendySearches.map((value: string, index: number) => (
-                  <li key={index}>{value}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className={styles.categories}>
-            <h2>Browse categories</h2>
-            <ul>
-              {categories.map((category: string, index: number) => (
-                <li key={index}>{category}</li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.suggestion}>
-            <h2>Dont know what to watch ? Check this out !</h2>
-            <iframe src={randomVideo.embed} allowFullScreen />
-          </div>
-        </div>
+        <SearchPanel
+          ref={panelRef}
+          setSearchPanelIsOpen={setSearchPanelIsOpen}
+        />
       )}
     </div>
   );

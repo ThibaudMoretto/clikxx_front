@@ -20,7 +20,7 @@ export const FavoriteButton = ({ source, videoId }: FavoriteButtonProps) => {
       <input
         onClick={isFavorite ? removeFavorite : addFavorite}
         type="button"
-        value="&#10084;"
+        value="&hearts;"
         className={isFavorite ? styles.isFavorite : ''}
       />
     </div>

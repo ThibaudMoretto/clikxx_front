@@ -62,11 +62,11 @@
     text-transform: capitalize;
 
     &.eporner {
-      background-color: #d8377d;
+      background-color: var(--eporner);
     }
 
     &.redtube {
-      background-color: #f41111;
+      background-color: var(--redtube);
     }
   }
 

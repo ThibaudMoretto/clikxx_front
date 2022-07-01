@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import Script from 'next/script';
+
+import cn from 'classnames';
+
 import { Footer } from '../footer';
 import { Header } from '../header';
 
@@ -11,7 +14,7 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={styles.layout}>
+    <div className={cn(styles.layout)}>
       <Head>
         <title>Clikxx</title>
         <meta name="description" content="Pinkx is a porn oriented website" />

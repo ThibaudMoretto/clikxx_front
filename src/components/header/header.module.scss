@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: #0a0a0a;
+  background-color: var(--black);
 
   .logoSection {
     display: flex;
@@ -23,7 +23,7 @@
       }
 
       .x {
-        color: #f499c1;
+        color: var(--pink);
       }
     }
 
