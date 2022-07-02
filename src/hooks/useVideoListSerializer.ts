@@ -7,11 +7,13 @@ import { SOURCES } from 'src/constants/sources';
 interface UseVideoListSerializerArgs {
   epornerVideos: any;
   redtubeVideos: any;
+  youpornVideos: any;
 }
 
 export const useVideoListSerializer = ({
   epornerVideos,
   redtubeVideos,
+  youpornVideos,
 }: UseVideoListSerializerArgs) => {
   const epornerVideosList = epornerVideos.videos.map((video: EpornerVideo) => {
     const added = dayjs(video.added).format('YYYY-MM-DD');
@@ -60,7 +62,28 @@ export const useVideoListSerializer = ({
     }
   );
 
-  const videosList = [...epornerVideosList, ...redtubeVideosList];
+  const youpornVideoList = youpornVideos.map((video: any) => {
+    return {
+      added: 'Unknown',
+      default_thumb: video.thumbs[0],
+      duration: video.duration,
+      embed: video.embed,
+      id: video.id,
+      keywords: video.keywords,
+      rate: 0,
+      source: SOURCES.youporn,
+      thumbs: video.thumbs,
+      title: video.title,
+      url: '',
+      views: 0,
+    };
+  });
+
+  const videosList = [
+    ...epornerVideosList,
+    ...redtubeVideosList,
+    ...youpornVideoList,
+  ];
 
   return videosList;
 };

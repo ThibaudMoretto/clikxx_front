@@ -8,6 +8,7 @@ const nextConfig = {
       'di-ph.rdtcdn.com',
       'di.rdtcdn.com',
       'ei.rdtcdn.com',
+      'fi1.ypncdn.com',
     ],
   },
 };

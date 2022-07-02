@@ -30,6 +30,7 @@ function Favorites() {
             });
         }
         if (source === SOURCES.redtube) {
+
           await fetch(
             `https://api.redtube.com/?data=redtube.Videos.getVideoById&video_id=${videoId}`
           )

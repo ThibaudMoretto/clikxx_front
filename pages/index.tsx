@@ -9,6 +9,8 @@ import { useVideoListSerializer } from 'src/hooks/useVideoListSerializer';
 
 import { UnderConstruction } from 'src/components/underConstruction';
 
+import youpornVids from '../data/yp1000.json';
+
 import styles from 'styles/Home.module.scss';
 
 export const getStaticProps = async () => {
@@ -22,18 +24,26 @@ export const getStaticProps = async () => {
   );
   const redtubeVideos = await redtube.json();
 
+  const youpornVideos = youpornVids.slice(0, 20);
+
   return {
     props: {
       epornerVideos,
       redtubeVideos,
+      youpornVideos,
     },
   };
 };
 
-const Home: NextPage = ({ epornerVideos, redtubeVideos }: any) => {
+const Home: NextPage = ({
+  epornerVideos,
+  redtubeVideos,
+  youpornVideos,
+}: any) => {
   const videoList: any = useVideoListSerializer({
     epornerVideos,
     redtubeVideos,
+    youpornVideos,
   });
 
   const [videos, setVideos] = useState([]);
@@ -52,13 +62,13 @@ const Home: NextPage = ({ epornerVideos, redtubeVideos }: any) => {
     <div className={styles.home}>
       {process.env.NODE_ENV === 'production' && <UnderConstruction />}
       <a
-        href="https://t.acam.link/225144/2994/optimized?bo=2779,2778,2777,2776,2775&file_id=427617&po=6533"
+        href="https://t.aagm.link/225144/6950/0?bo=3511,3512,3521,3522&file_id=549434"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.largeBanner}
       >
         <img
-          src="https://www.imglnkd.com/2994/008921A_ROYA_18_ALL_EN_125_L.gif"
+          src="https://www.imglnkd.com/6950/010745A_ISTRP_18_ALL_EN_125_L.gif"
           width="728"
           height="90"
         />

@@ -1,6 +1,7 @@
 import { getRandomVideo } from 'src/utils/videos';
 
 import { useHandleClickClosePanel } from './useHandleClickClosePanel';
+import { useSearch } from './useSearch';
 
 import styles from './searchPanel.module.scss';
 
@@ -29,6 +30,8 @@ export const SearchPanel = ({
 
   useHandleClickClosePanel(ref, setSearchPanelIsOpen);
 
+  const { handleClickSearch } = useSearch();
+
   return (
     <div className={styles.searchPanel}>
       <span className={styles.close} id="closePanelButton">
@@ -39,7 +42,12 @@ export const SearchPanel = ({
           <h2>Trendy searches</h2>
           <ul>
             {trendySearches.map((value: string, index: number) => (
-              <li key={index}>{value}</li>
+              <li
+                key={index}
+                onClick={(e: any) => handleClickSearch(e.target.innerText)}
+              >
+                {value}
+              </li>
             ))}
           </ul>
         </div>
@@ -48,7 +56,12 @@ export const SearchPanel = ({
         <h2>Browse categories</h2>
         <ul>
           {categories.map((category: string, index: number) => (
-            <li key={index}>{category}</li>
+            <li
+              key={index}
+              onClick={(e: any) => handleClickSearch(e.target.innerText)}
+            >
+              {category}
+            </li>
           ))}
         </ul>
       </div>

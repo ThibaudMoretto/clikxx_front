@@ -5,11 +5,8 @@ export function useHandleClickClosePanel(
   callback: (arg0: boolean) => void
 ) {
   useEffect(() => {
-    function handleClickClosePanel(event: any) {
-      if (ref?.current && !ref.current.contains(event.target)) {
-        callback(false);
-      }
-      console.log(ref);
+    function handleClickClosePanel() {
+      callback(false);
     }
 
     document
