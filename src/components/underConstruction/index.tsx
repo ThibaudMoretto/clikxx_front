@@ -42,12 +42,12 @@ export const UnderConstruction = () => {
             />
           </a>
           <a
-            href="https://t.acam.link/225144/2994/optimized?bo=2779,2778,2777,2776,2775&file_id=563223&po=6533"
+            href="https://t.acam.link/225144/3664/0?bo=2779,2778,2777,2776,2775&file_id=334394&po=6533"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
-              src="https://www.imglnkd.com/2994/008706C_ROYA_18_ALL_EN_71_L.gif"
+              src="https://www.imglnkd.com/3664/006684A_GCAM_18_ALL_EN_71_L.gif"
               width="300"
               height="250"
             />
@@ -55,23 +55,23 @@ export const UnderConstruction = () => {
         </div>
         <div className={styles.shortBanners}>
           <a
-            href="https://t.acam.link/225144/2994/optimized?bo=2779,2778,2777,2776,2775&file_id=562017&po=6533"
+            href="https://t.acam.link/225144/3688/0?bo=2779,2778,2777,2776,2775&file_id=530330&po=6533"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
-              src="https://www.imglnkd.com/2994/ST_Lick-EN.gif"
+              src="https://www.imglnkd.com/3688/007394E_18AB_18_ALL_EN_64_L.gif"
               width="300"
               height="100"
             />
           </a>
           <a
-            href="https://t.acam.link/225144/2994/optimized?bo=2779,2778,2777,2776,2775&file_id=562022&po=6533"
+            href="https://t.acam.link/225144/8059/0?bo=2779,2778,2777,2776,2775&file_id=555523&po=6533"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
-              src="https://www.imglnkd.com/2994/20211007155651-ST_milf2020-EN.gif"
+              src="https://www.imglnkd.com/8059/20210820101850-LiveGirls-JoinTheFun-WebcamVideo-300x100px-EN-GIF.gif"
               width="300"
               height="100"
             />
