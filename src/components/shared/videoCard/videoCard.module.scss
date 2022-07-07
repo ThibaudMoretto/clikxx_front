@@ -22,6 +22,24 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    // border-bottom-left-radius: 5px;
+    // border-bottom-right-radius: 5px;
+
+    &.eporner {
+      border-top: 3px solid var(--eporner);
+    }
+
+    &.redtube {
+      border-top: 3px solid var(--redtube);
+    }
+
+    &.xvideos {
+      border-top: 3px solid var(--xvideos);
+    }
+
+    &.youporn {
+      border-top: 3px solid var(--youporn);
+    }
 
     .title {
       display: -webkit-box;
@@ -65,8 +83,19 @@
       background-color: var(--eporner);
     }
 
+    &.pornhub {
+      background-color: var(--pornhub);
+    }
+
     &.redtube {
       background-color: var(--redtube);
+    }
+    &.xnxx {
+      background-color: var(--xnxx);
+    }
+
+    &.xvideos {
+      background-color: var(--xvideos);
     }
 
     &.youporn {

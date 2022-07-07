@@ -12,6 +12,7 @@ export function useHandleClickClosePanel(
     document
       .querySelector('#closePanelButton')
       ?.addEventListener('mousedown', handleClickClosePanel);
+
     return () => {
       document
         .querySelector('#closePanelButton')

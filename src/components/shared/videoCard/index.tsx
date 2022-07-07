@@ -36,7 +36,7 @@ export const VideoCard = ({ video }: VideoApi) => {
           <FavoriteButton videoId={video.id} source={video.source} />
         </div>
 
-        <div className={styles.details}>
+        <div className={`${styles.details} ${styles[video.source]}`}>
           <Link
             href={{
               pathname: `/video`,

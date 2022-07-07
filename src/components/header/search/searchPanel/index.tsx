@@ -1,7 +1,6 @@
-import { getRandomVideo } from 'src/utils/videos';
+import { useRouter } from 'next/router';
 
 import { useHandleClickClosePanel } from './useHandleClickClosePanel';
-import { useSearch } from './useSearch';
 
 import styles from './searchPanel.module.scss';
 
@@ -14,9 +13,7 @@ export const SearchPanel = ({
   ref,
   setSearchPanelIsOpen,
 }: SearchPanelProps) => {
-  console.log(ref);
-
-  const randomVideo = getRandomVideo();
+  const router = useRouter();
 
   const trendySearches = [
     'Katsuni',
@@ -30,7 +27,12 @@ export const SearchPanel = ({
 
   useHandleClickClosePanel(ref, setSearchPanelIsOpen);
 
-  const { handleClickSearch } = useSearch();
+  const handleSearch = (searchValue: string) => {
+    router.push({
+      pathname: '/search',
+      query: { query: searchValue },
+    });
+  };
 
   return (
     <div className={styles.searchPanel}>
@@ -40,11 +42,11 @@ export const SearchPanel = ({
       {trendySearches.length > 0 && (
         <div className={styles.trendySearches}>
           <h2>Trendy searches</h2>
-          <ul>
+          <ul id="trendyList">
             {trendySearches.map((value: string, index: number) => (
               <li
                 key={index}
-                onClick={(e: any) => handleClickSearch(e.target.innerText)}
+                onClick={(e: any) => handleSearch(e.target.innerText)}
               >
                 {value}
               </li>
@@ -54,20 +56,16 @@ export const SearchPanel = ({
       )}
       <div className={styles.categories}>
         <h2>Browse categories</h2>
-        <ul>
+        <ul id="categories">
           {categories.map((category: string, index: number) => (
             <li
               key={index}
-              onClick={(e: any) => handleClickSearch(e.target.innerText)}
+              onClick={(e: any) => handleSearch(e.target.innerText)}
             >
               {category}
             </li>
           ))}
         </ul>
-      </div>
-      <div className={styles.suggestion}>
-        <h2>Dont know what to watch ? Check this out !</h2>
-        <iframe src={randomVideo.embed} allowFullScreen />
       </div>
     </div>
   );

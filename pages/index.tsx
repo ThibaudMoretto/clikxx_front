@@ -10,6 +10,7 @@ import { useVideoListSerializer } from 'src/hooks/useVideoListSerializer';
 import { UnderConstruction } from 'src/components/underConstruction';
 
 import youpornVids from '../data/yp1000.json';
+import xVideosVids from '../data/xv1.json';
 
 import styles from 'styles/Home.module.scss';
 
@@ -24,13 +25,16 @@ export const getStaticProps = async () => {
   );
   const redtubeVideos = await redtube.json();
 
-  const youpornVideos = youpornVids.slice(0, 20);
+  const youpornVideos = youpornVids.slice(0, 30);
+
+  const xVideosVideos = xVideosVids.slice(0, 30);
 
   return {
     props: {
       epornerVideos,
       redtubeVideos,
       youpornVideos,
+      xVideosVideos,
     },
   };
 };
@@ -39,11 +43,13 @@ const Home: NextPage = ({
   epornerVideos,
   redtubeVideos,
   youpornVideos,
+  xVideosVideos,
 }: any) => {
   const videoList: any = useVideoListSerializer({
     epornerVideos,
     redtubeVideos,
     youpornVideos,
+    xVideosVideos,
   });
 
   const [videos, setVideos] = useState([]);

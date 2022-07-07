@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { SearchPanel } from './searchPanel';
 
@@ -9,15 +10,31 @@ import styles from './search.module.scss';
 
 export const Search = () => {
   const [searchPanelIsOpen, setSearchPanelIsOpen] = useState<boolean>(false);
+  const [searchInputValue, setSearchInputValue] = useState<string>('');
 
   const panelRef = useRef(null);
   useHandleClickOutsidePanel(panelRef, setSearchPanelIsOpen);
 
-  const handleSearchSubmit = (e: any) => {
+  const router = useRouter();
+
+  const handleSearchSubmit = async (e: any) => {
     if (e.key === 'Enter') {
-      console.log(e.target.value);
+      router.push({
+        pathname: '/search',
+        query: { query: e.target.value },
+      });
     }
   };
+
+  useEffect(() => {
+    if (!router.pathname.includes('search')) {
+      setSearchInputValue('');
+    }
+
+    if (router.query.query) setSearchInputValue(router.query.query as string);
+
+    setSearchPanelIsOpen(false);
+  }, [router]);
 
   return (
     <div
@@ -29,6 +46,8 @@ export const Search = () => {
         type="text"
         placeholder="Search videos..."
         onKeyDown={handleSearchSubmit}
+        onChange={(e: any) => setSearchInputValue(e.target.value)}
+        value={searchInputValue}
       />
       <Image src="/search.svg" alt="search" width={25} height={25} />
       {searchPanelIsOpen && (

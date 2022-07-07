@@ -16,8 +16,12 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={cn(styles.layout)}>
       <Head>
-        <title>Clikxx</title>
-        <meta name="description" content="Pinkx is a porn oriented website" />
+        <title>Clikxx - A free porn aggregator</title>
+        <meta name="description" content="Pinkx is a porn website aggregator" />
+        <meta
+          name="viewport"
+          content="user-scalable=yes,width=device-width,minimum-scale=1,initial-scale=1"
+        />
         <link rel="favicon" href="/favicon.ico" />
       </Head>
 

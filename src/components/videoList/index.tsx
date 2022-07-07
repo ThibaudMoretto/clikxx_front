@@ -5,8 +5,6 @@ import styles from './videoList.module.scss';
 export const VideoList = ({ videos }: any) => {
   const videosSorted = videos.sort(() => Math.random() - 0.5);
 
-  console.log(videosSorted);
-
   return (
     <div className={styles.videoList}>
       {videosSorted.map((video: any, index: number) => {
