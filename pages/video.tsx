@@ -26,7 +26,7 @@ function Videos() {
               <span>Added : {video.added}</span>
               <span>From : {video.source}</span>
             </div>
-            <FavoriteButton source={video.source} videoId={video.id} />
+            <FavoriteButton video={video} />
           </div>
 
           <div className={styles.adsSection}>

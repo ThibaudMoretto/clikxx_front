@@ -25,7 +25,7 @@ function Random() {
           <h1>{video.title}</h1>
           <iframe src={video.embed} />
           <input type="button" value="Another one, please !" onClick={reload} />
-          <FavoriteButton source={video.source} videoId={video.id} />
+          <FavoriteButton video={video} />
         </>
       )}
     </div>

@@ -1,19 +1,15 @@
 import { useFavoriteButton } from './useFavoriteButton';
 
-import { SOURCES } from 'src/constants/sources';
+import { Video } from 'types/video';
 
 import styles from './favoriteButton.module.scss';
 
 interface FavoriteButtonProps {
-  source: SOURCES;
-  videoId: string;
+  video: Video;
 }
 
-export const FavoriteButton = ({ source, videoId }: FavoriteButtonProps) => {
-  const { addFavorite, isFavorite, removeFavorite } = useFavoriteButton({
-    source,
-    videoId,
-  });
+export const FavoriteButton = (video: FavoriteButtonProps) => {
+  const { addFavorite, isFavorite, removeFavorite } = useFavoriteButton(video);
 
   return (
     <div className={styles.favoriteButton}>

@@ -12,6 +12,8 @@ export const VideoCard = ({ video }: VideoApi) => {
     localStorage.setItem('video', JSON.stringify(video));
   };
 
+  console.log(video);
+
   return (
     <div className={styles.videoCard}>
       <>
@@ -33,10 +35,10 @@ export const VideoCard = ({ video }: VideoApi) => {
               />
             </a>
           </Link>
-          <FavoriteButton videoId={video.id} source={video.source} />
+          <FavoriteButton video={video} />
         </div>
 
-        <div className={`${styles.details} ${styles[video.source]}`}>
+        <div className={styles.details}>
           <Link
             href={{
               pathname: `/video`,

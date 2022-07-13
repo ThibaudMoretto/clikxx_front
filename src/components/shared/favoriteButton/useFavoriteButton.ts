@@ -1,23 +1,17 @@
 import { useEffect, useState } from 'react';
 
-import { Favorite } from 'types/video';
-import { SOURCES } from 'src/constants/sources';
+import { Video } from 'types/video';
 
 import { getFavorites } from 'src/utils/favorites';
 
-interface UseFavoriteButtonProps {
-  source: SOURCES;
-  videoId: string;
-}
-
-export function useFavoriteButton({ source, videoId }: UseFavoriteButtonProps) {
+export function useFavoriteButton({ video }: any) {
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const { id: videoId } = video;
 
   useEffect(() => {
     const favorites = getFavorites();
-    if (
-      favorites.filter((favorite) => favorite.videoId === videoId).length > 0
-    ) {
+    if (favorites.filter((favorite) => favorite.id === videoId).length > 0) {
       setIsFavorite(true);
     }
   }, []);
@@ -26,10 +20,10 @@ export function useFavoriteButton({ source, videoId }: UseFavoriteButtonProps) {
     const favorites = getFavorites();
 
     if (
-      !favorites.find((favorite) => favorite.videoId === videoId) &&
+      !favorites.find((favorite) => favorite.id === videoId) &&
       typeof window !== 'undefined'
     ) {
-      favorites.push({ source, videoId });
+      favorites.push(video);
       localStorage.setItem('favorites', JSON.stringify(favorites));
     }
     setIsFavorite(true);
@@ -38,11 +32,11 @@ export function useFavoriteButton({ source, videoId }: UseFavoriteButtonProps) {
   const removeFavorite = () => {
     const favorites = getFavorites();
     if (
-      favorites.filter((favorite) => favorite.videoId === videoId).length > 0 &&
+      favorites.filter((favorite) => favorite.id === videoId).length > 0 &&
       typeof window !== 'undefined'
     ) {
       const favoritesArray = favorites.filter(
-        (fav: Favorite) => fav.videoId !== videoId
+        (fav: Video) => fav.id !== videoId
       );
       localStorage.setItem('favorites', JSON.stringify(favoritesArray));
     }

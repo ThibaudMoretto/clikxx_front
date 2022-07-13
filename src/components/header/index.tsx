@@ -30,7 +30,7 @@ export const Header = () => {
             </span>
           </a>
         </Link>
-        {process.env.NODE_ENV === 'development' && <Search />}
+        <Search />
       </div>
       <Navbar />
     </header>

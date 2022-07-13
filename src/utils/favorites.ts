@@ -1,5 +1,6 @@
-import { Favorite } from 'types/video';
+import { Video } from 'types/video';
 
-export const getFavorites = (): Array<Favorite> =>
-  typeof window !== 'undefined' &&
-  JSON.parse(localStorage.getItem('favorites') || '[]');
+export const getFavorites = (): Array<Video> =>
+  (typeof window !== 'undefined' &&
+    JSON.parse(localStorage.getItem('favorites') || '[]')) ||
+  [];

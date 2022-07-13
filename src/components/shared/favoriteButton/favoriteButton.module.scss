@@ -8,8 +8,9 @@
     right: 10px;
     border-radius: 50%;
     font-size: 1.5em;
-    background-color: transparent;
-    border: 1px solid var(--light-grey);
+    background-color: var(--light-grey);
+    box-shadow: rgba(0, 0, 0, 1) 0px 19px 38px,
+      rgba(0, 0, 0, 1) 0px 5px 8px;
 
     &.isFavorite {
       color: var(--pink);

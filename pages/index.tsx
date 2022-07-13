@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 
-import { Video } from 'types/video';
-
 import { VideoList } from 'src/components/videoList';
 
 import { useVideoListSerializer } from 'src/hooks/useVideoListSerializer';
 
-import { UnderConstruction } from 'src/components/underConstruction';
+import { LandingModal } from 'src/components/landingModal';
+
+// import { UnderConstruction } from 'src/components/underConstruction';
 
 import youpornVids from '../data/yp1000.json';
 import xVideosVids from '../data/xv1.json';
@@ -16,18 +16,18 @@ import styles from 'styles/Home.module.scss';
 
 export const getStaticProps = async () => {
   const eporner = await fetch(
-    'https://www.eporner.com/api/v2/video/search/?query=teen&thumbsize=big&order=latest&lq=0'
+    'https://www.eporner.com/api/v2/video/search/?query=teen&thumbsize=small&order=latest&lq=0&per_page=20'
   );
   const epornerVideos = await eporner.json();
 
   const redtube = await fetch(
-    'https://api.redtube.com/?data=redtube.Videos.searchVideos&order=newest'
+    'https://api.redtube.com/?data=redtube.Videos.searchVideos&order=newest&thumbsize=small'
   );
   const redtubeVideos = await redtube.json();
 
-  const youpornVideos = youpornVids.slice(0, 30);
+  const youpornVideos = youpornVids.slice(0, 20);
 
-  const xVideosVideos = xVideosVids.slice(0, 30);
+  const xVideosVideos = xVideosVids.slice(0, 20);
 
   return {
     props: {
@@ -57,16 +57,22 @@ const Home: NextPage = ({
   useEffect(() => setVideos(videoList), []);
 
   useEffect(() => {
-    const embedLinks = videos.map((video: Video) => ({
-      embed: video.embed,
-      title: video.title,
-    }));
+    const embedLinks = videos;
     localStorage.setItem('randomList', JSON.stringify(embedLinks));
   }, [videos]);
 
+  let landingModalIsOpen = true;
+
+  const closeLandingModal = () => {
+    landingModalIsOpen = false;
+  };
+
   return (
     <div className={styles.home}>
-      {process.env.NODE_ENV === 'production' && <UnderConstruction />}
+      {/* {process.env.NODE_ENV === 'production' && <UnderConstruction />} */}
+      {/* {landingModalIsOpen && (
+        <LandingModal closeLandingModal={closeLandingModal} />
+      )} */}
       <a
         href="https://t.aagm.link/225144/6950/0?bo=3511,3512,3521,3522&file_id=549434"
         target="_blank"
