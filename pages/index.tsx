@@ -5,7 +5,7 @@ import { VideoList } from 'src/components/videoList';
 
 import { useVideoListSerializer } from 'src/hooks/useVideoListSerializer';
 
-import { LandingModal } from 'src/components/landingModal';
+// import { LandingModal } from 'src/components/landingModal';
 
 // import { UnderConstruction } from 'src/components/underConstruction';
 
@@ -61,11 +61,11 @@ const Home: NextPage = ({
     localStorage.setItem('randomList', JSON.stringify(embedLinks));
   }, [videos]);
 
-  let landingModalIsOpen = true;
+  // let landingModalIsOpen = true;
 
-  const closeLandingModal = () => {
-    landingModalIsOpen = false;
-  };
+  // const closeLandingModal = () => {
+  //   landingModalIsOpen = false;
+  // };
 
   return (
     <div className={styles.home}>
@@ -85,6 +85,9 @@ const Home: NextPage = ({
           height="90"
         />
       </a>
+
+      <h1>Welcome to Clikxx !</h1>
+      <h2>Have fun browsing Youporn, Xvideo, Eporner, Redtube all at once !</h2>
 
       <a
         href="https://t.acam.link/225144/2994/optimized?bo=2779,2778,2777,2776,2775&file_id=562011&po=6533"

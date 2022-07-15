@@ -1,0 +1,2 @@
+Sitemap: https://www.clixx.com/sitemap.xml
+User-agent:*
